@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 import json
 
-st.title = "🏠 House Price Prediction"
+st.title("🏠 House Price Prediction")
+
 
 st.write(
     "Please enter the following details to get the estimated price of the property:"
