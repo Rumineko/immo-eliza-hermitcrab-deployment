@@ -79,4 +79,7 @@ response = requests.post(
     url="https://price-prediction-model-2.onrender.com/predict",
     data=json.dumps(inputs),
 )
-st.subheader(f"Response from the API: {response.text}")
+
+price = response["predicted_price"]
+
+st.subheader(f"Response from the API: €{price.round(2):,d}")
