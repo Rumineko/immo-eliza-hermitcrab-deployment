@@ -2,10 +2,10 @@ import streamlit as st
 import requests
 import json
 
-st.title = "House Price Prediction"
+st.title = "🏠 House Price Prediction"
 
 st.write(
-    "Please enter the following details to get the estimated price of the property"
+    "Please enter the following details to get the estimated price of the property:"
 )
 
 type = st.selectbox("Type of Property", ("Apartment", "House"))
@@ -20,12 +20,14 @@ openfire = st.selectbox("Does the Property have a Fireplace", ("Yes", "No"))
 state_of_building = st.selectbox(
     "State of Building", ("Good", "New", "To Renovate", "Just Renovated")
 )
-garden_surface = st.number_input("Garden Surface", min_value=0, max_value=1000, value=0)
+garden_surface = st.number_input(
+    "Garden Surface (in m²)", min_value=0, max_value=1000, value=0
+)
 habitable_surface = st.number_input(
-    "Habitable Surface", min_value=0, max_value=1000, value=0
+    "Habitable Surface (in m²)", min_value=0, max_value=1000, value=0
 )
 terrace_surface = st.number_input(
-    "Terrace Surface", min_value=0, max_value=1000, value=0
+    "Terrace Surface (in m²)", min_value=0, max_value=1000, value=0
 )
 postal_code = st.number_input("Postal Code", min_value=1000, max_value=9999, value=1000)
 
@@ -85,4 +87,4 @@ response = response.json()
 price = response["predicted_price"]
 rounded = round(price)
 
-st.subheader(f"Response from the API: €{int(rounded):,d}")
+st.subheader(f"🤖 Response from the API: €{int(rounded):,d} 💶")
