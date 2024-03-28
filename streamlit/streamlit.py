@@ -75,5 +75,8 @@ inputs = {
     "State of Building": state_of_building,
 }
 
-response = requests.post(url="http://localhost:8000/predict", data=json.dumps(inputs))
+response = requests.post(
+    url="http://https://price-prediction-model-2.onrender.com/predict",
+    data=json.dumps(inputs),
+)
 st.subheader(f"Response from the API: {response.text}")
