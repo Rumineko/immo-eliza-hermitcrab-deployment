@@ -76,7 +76,7 @@ inputs = {
 }
 
 response = requests.post(
-    url="http://https://price-prediction-model-2.onrender.com/predict",
+    url="https://price-prediction-model-2.onrender.com/predict",
     data=json.dumps(inputs),
 )
 st.subheader(f"Response from the API: {response.text}")
