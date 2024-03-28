@@ -80,6 +80,8 @@ response = requests.post(
     data=json.dumps(inputs),
 )
 
+response = response.json()
+
 price = response["predicted_price"]
 
 st.subheader(f"Response from the API: €{price.round(2):,d}")
