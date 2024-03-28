@@ -83,5 +83,6 @@ response = requests.post(
 response = response.json()
 
 price = response["predicted_price"]
+rounded = round(price)
 
-st.subheader(f"Response from the API: €{price.round(2):,d}")
+st.subheader(f"Response from the API: €{int(rounded):,d}")
