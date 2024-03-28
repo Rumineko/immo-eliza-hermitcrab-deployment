@@ -45,15 +45,22 @@ def main():
     )
     ohetransform = ohe.fit_transform(filled_data[["Province"]])
     dataframe1 = pd.concat([filled_data, ohetransform], axis=1).drop("Province", axis=1)
+    ohetransform = ohe.fit_transform(filled_data[["Region"]])
+    dataframe1 = pd.concat([filled_data, ohetransform], axis=1).drop("Region", axis=1)
     ohetransform = ohe.fit_transform(dataframe1[["Type"]])
     dataframe2 = pd.concat([dataframe1, ohetransform], axis=1).drop("Type", axis=1)
     columns_to_predict = [
-        "Habitable Surface",
         "Kitchen Type",
-        "Terrace Surface",
         "Garden Surface",
+        "Habitable Surface",
+        "Terrace Surface",
+        "Furnished",
+        "Openfire",
         "State of Building",
         "EPC",
+        "Swimming Pool",
+        "Latitude",
+        "Longitude",
         "Type_APARTMENT",
         "Type_HOUSE",
         "Province_ANTWERPEN",
@@ -67,6 +74,9 @@ def main():
         "Province_VLAAMS-BRABANT",
         "Province_WAALS-BRABANT",
         "Province_WEST-VLAANDEREN",
+        "Region_Brussels",
+        "Region_Flanders",
+        "Region_Wallonia",
     ]
     dataframe3 = dataframe2[columns_to_predict]
 
