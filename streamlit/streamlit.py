@@ -9,16 +9,18 @@ st.write(
     "Please enter the following details to get the estimated price of the property:"
 )
 
-type = st.selectbox("Type of Property", ("Apartment", "House"))
-kitchen_type = st.selectbox(
-    "Type of Kitchen", ("Not Installed", "Semi Equipped", "Installed", "Hyper Equipped")
+type = st.radio("Type of Property", ("Apartment", "House"))
+kitchen_type = st.radio(
+    "Type of Kitchen",
+    ("Not Installed", "Semi Equipped", "Installed", "Hyper Equipped"),
 )
-epc = st.selectbox(
-    "Energy Performance Certificate", ("A++", "A+", "A", "B", "C", "D", "E", "F", "G")
+epc = st.select_slider(
+    "Energy Performance Certificate",
+    options=["A++", "A+", "A", "B", "C", "D", "E", "F", "G"],
 )
-furnished = st.selectbox("Is the Property Furnished?", ("Yes", "No"))
-openfire = st.selectbox("Does the Property have a Fireplace", ("Yes", "No"))
-state_of_building = st.selectbox(
+furnished = st.toggle("Is the Property Furnished?")
+openfire = st.toggle("Does the Property have a Fireplace?")
+state_of_building = st.radio(
     "State of Building", ("Good", "New", "To Renovate", "Just Renovated")
 )
 garden_surface = st.number_input(
@@ -32,12 +34,12 @@ terrace_surface = st.number_input(
 )
 postal_code = st.number_input("Postal Code", min_value=1000, max_value=9999, value=1000)
 
-if furnished == "Yes":
+if furnished:
     furnished = True
 else:
     furnished = False
 
-if openfire == "Yes":
+if openfire:
     openfire = True
 else:
     openfire = False
@@ -78,14 +80,31 @@ inputs = {
     "State of Building": state_of_building,
 }
 
-response = requests.post(
-    url="https://price-prediction-model-2.onrender.com/predict",
-    data=json.dumps(inputs),
+
+if "clicked" not in st.session_state:
+    st.session_state.clicked = False
+
+
+def click_button():
+    st.session_state.clicked = True
+
+
+st.header(
+    "🦀 Charlie is awaiting your request. Whenever ready, click the button below! 🦀"
 )
+st.button("Click me to ask Charlie to Predict the Price!", on_click=click_button)
 
-response = response.json()
 
-price = response["predicted_price"]
-rounded = round(price)
+if st.session_state.clicked:
+    response = requests.post(
+        url="https://price-prediction-model-2.onrender.com/predict",
+        data=json.dumps(inputs),
+    )
 
-st.subheader(f"🤖 Response from the API: €{int(rounded):,d} 💶")
+    response = response.json()
+
+    price = response["predicted_price"]
+    rounded = round(price)
+    value = int(rounded)
+    st.subheader(f"🦀 Charlie says your property is worth: €{value:,d} 💶")
+    st.session_state.clicked = False
