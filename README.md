@@ -2,6 +2,8 @@
 
 [![forthebadge made-with-python](https://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
+![Charlie](https://cdn.discordapp.com/attachments/1209053035783913502/1214893521212018758/Charlie_100.png?ex=66167443&is=6603ff43&hm=ffa00a8503d1d0990689c5a027e7f6eecfa360c1da4b86534789054696740159&)
+
 By team **Hermit Crab** member, [Alice](https://www.linkedin.com/in/alice-edcm/)
 
 ## 📖 Description
@@ -74,6 +76,6 @@ It is the fourth and last phase of a team project to build a machine learning mo
 
 ## Thank you for visiting our project page!
 
-By team **Hermit Cra****b** member, [Alice](https://www.linkedin.com/in/alice-edcm/)
+By team **Hermit Crab** member, [Alice](https://www.linkedin.com/in/alice-edcm/)
 
-![crawl-along](https://biol326.files.wordpress.com/2018/04/andres-rivera-crab-gif-source.gif)
+![Charlie](https://cdn.discordapp.com/attachments/1209053035783913502/1214893521212018758/Charlie_100.png?ex=66167443&is=6603ff43&hm=ffa00a8503d1d0990689c5a027e7f6eecfa360c1da4b86534789054696740159&)
